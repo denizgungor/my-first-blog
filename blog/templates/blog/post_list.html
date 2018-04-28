@@ -3,21 +3,17 @@
         <title>Django Girls blog</title>
     </head>
     <body>
-        <div>
-            <h1><a href="/">Django Girls Blog</a></h1>
-        </div>
-        <div>
-            <h2><a href="">First Post</a></h2>
-            <p>published date: 28.04.2018, 16:15</p>
-            <p>I am very excited! This is my first post! Dealing with the computers is very enjoyable. I will not leave my computer anymore! </p>
-        </div>
+           <div>
+           <h1><a href="/">Django Girls Blog</a></h1>
+           </div>
 
-        <div>
-            <h2><a href="">Second Post</a></h2>
-        </div>
-        <div>    
-            <p>published: 28.04.201, 16:20</p>
-            <p>This is my second post in Turkish: Bir varmış bir yokmuş, evvel zaman içinde Ne kadar zevkli bir işmiş bilgisayarlarla uğraşmak. Artık bilgisayar başından kalkmam. kalbur saman içinde, develer tellal iken, pireler berber iken; ben annemin beşiğini tıngır mıngır sallar iken.</p>
-        </div>
+{% for post in posts %}
+    <div>
+        <p>published: {{ post.published_date }}</p>
+        <h1><a href="">{{ post.title }}</a></h1>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+{% endfor %}
+
     </body>
 </html>
